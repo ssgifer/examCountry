@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\examCountrySearch\examtest\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1696672655.index
+1078761612.index
+1378675290.index
+1269752104.index
+3788634923.index
+119410776.index
+842982309.index

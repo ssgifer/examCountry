@@ -1,0 +1,280 @@
+package exam;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import javax.servlet.http.*;
+
+public class CountryENFunction {
+	
+	public static ArrayList<Country> getCountryEN(String nameCountry, String population) {
+		
+		ArrayList<Country> countryENlist = new ArrayList<>();
+		ArrayList<Country> getCountrylist = getAllCountryEN();
+		
+		if (nameCountry.length() >= 2 && population.length() > 0) {
+			for(Country eachCountry : getCountrylist) {
+				if(eachCountry.getName().toLowerCase().contains(nameCountry.toLowerCase()) && eachCountry.getPeople() >= Integer.parseInt(population)) {
+//					System.out.println("Country : " + eachCountry.getName() + "\t" + "Area : " + eachCountry.getArea() + "\t" + " " + "Population : " + eachCountry.getPeople());				
+					countryENlist.add(eachCountry);
+				}					
+			}
+		}
+		
+		else if (nameCountry.length() >= 2) {
+			for(Country eachCountry : getCountrylist) {
+				if (eachCountry.getName().toLowerCase().contains(nameCountry.toLowerCase())) {
+//					System.out.println("Country : " + eachCountry.getName() + "\t" + "Area : " + eachCountry.getArea() + "\t" + " " + "Population : " + eachCountry.getPeople());				
+					countryENlist.add(eachCountry);
+				}
+			}
+		}		
+		
+		else if (population.length() > 0) {
+			for(Country eachCountry : getCountrylist) {
+				if (eachCountry.getPeople() >= Integer.parseInt(population)) {
+//					System.out.println("Country : " + eachCountry.getName() + "\t" + "Area : " + eachCountry.getArea() + "\t" + " " + "Population : " + eachCountry.getPeople());				
+					countryENlist.add(eachCountry);
+					
+				}
+			}
+		}
+		
+		return countryENlist;
+	}
+	
+	
+	public static ArrayList<Country> getSortbyName(ArrayList<Country> countryENlist){
+		Collections.sort(countryENlist, new Comparator<Country>() {
+		@Override
+	    public int compare(Country a, Country b) {
+	        return a.getName().compareTo(b.getName());
+		}
+		});
+		return countryENlist;	
+	}
+		
+	public static ArrayList<Country> getSortbyArea(ArrayList<Country> countrylist){
+		Collections.sort(countrylist, new Comparator<Country>() {
+		@Override
+		public int compare(Country a, Country b) {
+	        return Double.compare(a.getArea(),b.getArea());
+		}
+		});
+		return countrylist;	
+	}
+	
+	public static ArrayList<Country> getSortbyPopulation(ArrayList<Country> countrylist){
+		Collections.sort(countrylist, new Comparator<Country>() {
+		@Override
+		public int compare(Country a, Country b) {
+	        return Integer.compare(a.getPeople(),b.getPeople());
+		}
+		});
+	return countrylist;	
+}
+		
+	public static ArrayList<Country> getAllCountryEN() {
+		 
+	        ArrayList<Country> countryEN = new ArrayList<>();
+	      
+	        countryEN.add(new Country("Afghanistan", 652867, 32890171));
+	        countryEN.add(new Country("Albania", 28748, 2793592));
+	        countryEN.add(new Country("Algeria", 2381741, 45400000));
+	        countryEN.add(new Country("Andorra", 468, 81057));
+	        countryEN.add(new Country("Angola", 1246700, 33086278));
+	        countryEN.add(new Country("Antigua and Barbuda", 442, 100772));
+	        countryEN.add(new Country("Argentina", 2780400, 46044703));
+	        countryEN.add(new Country("Armenia", 29743, 2976800));
+	        countryEN.add(new Country("Australia", 7692024, 26438304));
+	        countryEN.add(new Country("Austria", 83871, 9106126));
+	        countryEN.add(new Country("Azerbaijan", 86600, 10127145));
+	        countryEN.add(new Country("Bahamas", 13943, 393450));
+	        countryEN.add(new Country("Bahrain", 786, 1501635));
+	        countryEN.add(new Country("Bangladesh", 148460, 169828911));
+	        countryEN.add(new Country("Barbados", 430, 282000));
+	        countryEN.add(new Country("Belarus", 207600, 9255524));
+	        countryEN.add(new Country("Belgium", 30528, 11730564));
+	        countryEN.add(new Country("Belize", 22966, 441471));
+	        countryEN.add(new Country("Benin", 114763, 12506347));
+	        countryEN.add(new Country("Bhutan", 38394, 763200));
+	        countryEN.add(new Country("Bolivia", 1098581, 12006031));
+	        countryEN.add(new Country("Bosnia and Herzegovina", 51209, 3320954));
+	        countryEN.add(new Country("Botswana", 581730, 2410338));
+	        countryEN.add(new Country("Brazil", 8514877, 216032823));
+	        countryEN.add(new Country("Brunei", 5765, 429999));
+	        countryEN.add(new Country("Bulgaria", 111002, 6519789));
+	        countryEN.add(new Country("Burkina Faso", 274222, 22185654));
+	        countryEN.add(new Country("Burundi", 27834, 12574571));
+	        countryEN.add(new Country("Cambodia", 181035, 15552211));
+	        countryEN.add(new Country("Cameroon", 475442, 24348251));
+	        countryEN.add(new Country("Canada", 9984670, 39815281));
+	        countryEN.add(new Country("Cape Verde", 4033, 563198));
+	        countryEN.add(new Country("Central African Republic", 622984, 5633412));
+	        countryEN.add(new Country("Chad", 1284000, 16818391));
+	        countryEN.add(new Country("Chile", 756102, 19960889));
+	        countryEN.add(new Country("China", 9640011, 1411750000));
+	        countryEN.add(new Country("Colombia", 1141748, 52215503));
+	        countryEN.add(new Country("Comoros", 1862, 758316));
+	        countryEN.add(new Country("Congo", 342000, 5970000));
+	        countryEN.add(new Country("Costa Rica", 51100, 5163038));
+	        countryEN.add(new Country("Croatia", 56594, 3871833));
+	        countryEN.add(new Country("Cuba", 109884, 11113215));
+	        countryEN.add(new Country("Cyprus", 9251, 918100));
+	        countryEN.add(new Country("Czech Republic", 78871, 10526937));
+	        countryEN.add(new Country("Denmark", 43094, 5932654));
+	        countryEN.add(new Country("Djibouti", 23200, 1001454));
+	        countryEN.add(new Country("Dominica", 751, 73000));
+	        countryEN.add(new Country("Dominican Republic", 48671, 10535535));
+	        countryEN.add(new Country("DR Congo", 2344858, 99010000));
+	        countryEN.add(new Country("East Timor", 14919, 1317780));
+	        countryEN.add(new Country("Ecuador", 276841, 18273599));
+	        countryEN.add(new Country("Egypt", 1002450, 104700708));
+	        countryEN.add(new Country("El Salvador", 21041, 6884888));
+	        countryEN.add(new Country("Equatorial Guinea", 28051, 1505588));
+	        countryEN.add(new Country("Eritrea", 125000, 3684000));
+	        countryEN.add(new Country("Estonia", 45227, 1331796));
+	        countryEN.add(new Country("Eswatini", 17364, 1202000));
+	        countryEN.add(new Country("Ethiopia", 1104300, 105163988));
+	        countryEN.add(new Country("Fiji", 18272, 898402));
+	        countryEN.add(new Country("Finland", 338425, 5528796));
+	        countryEN.add(new Country("France", 640679, 68042591));
+	        countryEN.add(new Country("Gabon", 267668, 2233272));
+	        countryEN.add(new Country("Gambia", 11295, 2706000));
+	        countryEN.add(new Country("Georgia", 69700, 3688600));
+	        countryEN.add(new Country("Germany", 357114, 84270625));
+	        countryEN.add(new Country("Ghana", 238533, 30832019));
+	        countryEN.add(new Country("Greece", 131957, 10482487));
+	        countryEN.add(new Country("Grenada", 344, 125000));
+	        countryEN.add(new Country("Guatemala", 108889, 17109746));
+	        countryEN.add(new Country("Guinea", 245857, 1646077));
+	        countryEN.add(new Country("Guinea-Bissau", 36125, 1646077));;
+	        countryEN.add(new Country("Guyana", 214969, 743699));
+	        countryEN.add(new Country("Haiti", 27750, 11743017));
+	        countryEN.add(new Country("Honduras", 112492, 9546178));
+	        countryEN.add(new Country("Hungary", 93028, 9678000));
+	        countryEN.add(new Country("Iceland", 103000, 387758));
+	        countryEN.add(new Country("India", 3201446, 1392329000));
+	        countryEN.add(new Country("Indonesia", 1904569, 275773800));
+	        countryEN.add(new Country("Iran", 1628750, 86362094));
+	        countryEN.add(new Country("Iraq", 438317, 41190700));
+	        countryEN.add(new Country("Ireland", 70273, 5123536));
+	        countryEN.add(new Country("Israel", 20770, 9707840));
+	        countryEN.add(new Country("Italy", 301339, 58833079));
+	        countryEN.add(new Country("Ivory Coast", 322463, 29389150));
+	        countryEN.add(new Country("Jamaica", 10991, 2727503));
+	        countryEN.add(new Country("Japan", 377976, 124947000));
+	        countryEN.add(new Country("Jordan", 89342, 11453760));
+	        countryEN.add(new Country("Kazakhstan", 2724900, 19838620));
+	        countryEN.add(new Country("Kenya", 580367, 47564296));
+	        countryEN.add(new Country("Kiribati", 811, 120740));
+	        countryEN.add(new Country("Kuwait", 17818, 4670713));
+	        countryEN.add(new Country("Kyrgyzstan", 199951, 7100000));
+	        countryEN.add(new Country("Laos", 236800, 7337783));
+	        countryEN.add(new Country("Latvia", 64559, 1888200));
+	        countryEN.add(new Country("Lebanon", 10452, 5490000));
+	        countryEN.add(new Country("Lesotho", 30355, 2306000));
+	        countryEN.add(new Country("Liberia", 111369, 4661010));
+	        countryEN.add(new Country("Libya", 1759540, 6812000));
+	        countryEN.add(new Country("Liechtenstein", 160 ,39680));
+	        countryEN.add(new Country("Lithuania", 65300, 2859718));
+	        countryEN.add(new Country("Luxembourg", 2586, 660809));
+	        countryEN.add(new Country("Madagascar", 587041, 26923353));
+	        countryEN.add(new Country("Malawi", 118484, 21507723));
+	        countryEN.add(new Country("Malaysia", 330803, 32783000));
+	        countryEN.add(new Country("Maldives", 300, 383135));
+	        countryEN.add(new Country("Mali", 1240192, 22594000));
+	        countryEN.add(new Country("Malta", 316 ,519562));
+	        countryEN.add(new Country("Marshall Islands", 181, 39262));
+	        countryEN.add(new Country("Mauritania", 1030700, 4271197));
+	        countryEN.add(new Country("Mauritius", 2040, 1266334));
+	        countryEN.add(new Country("Mexico", 1964375, 128665641));
+	        countryEN.add(new Country("Micronesia", 702, 105754));
+	        countryEN.add(new Country("Moldova", 33846, 2597100));
+	        countryEN.add(new Country("Monaco", 2.02, 39150));
+	        countryEN.add(new Country("Mongolia", 1564100, 3492683));
+	        countryEN.add(new Country("Montenegro", 13812, 617683));
+	        countryEN.add(new Country("Morocco", 446550, 36928040));
+	        countryEN.add(new Country("Mozambique", 801590, 32419747));
+	        countryEN.add(new Country("Myanmar", 676578, 55770232));
+	        countryEN.add(new Country("Namibia", 825615, 2550226));
+	        countryEN.add(new Country("Nauru", 21, 11832));
+	        countryEN.add(new Country("Nepal", 147516, 29164578));
+	        countryEN.add(new Country("Netherlands", 41850, 17858440));
+	        countryEN.add(new Country("New Zealand", 270467, 5162735));
+	        countryEN.add(new Country("Nicaragua", 130373, 6595674));
+	        countryEN.add(new Country("Niger", 1267000, 24112753));
+	        countryEN.add(new Country("Nigeria", 923768, 218541000));
+	        countryEN.add(new Country("North Korea", 120540, 25660000));
+	        countryEN.add(new Country("North Macedonia", 25713, 1832696));
+	        countryEN.add(new Country("Norway", 385207, 5488984));
+	        countryEN.add(new Country("Oman", 309500, 19053815)); 
+	        countryEN.add(new Country("Pakistan", 881913, 235825000));
+	        countryEN.add(new Country("Palau", 459, 16733));
+	        countryEN.add(new Country("Palestine", 6220, 5483450));
+	        countryEN.add(new Country("Panama", 75417, 4278500));
+	        countryEN.add(new Country("Papua New Guinea", 462840, 9122994));
+	        countryEN.add(new Country("Paraguay", 406752, 7353038));
+	        countryEN.add(new Country("Peru", 1285216, 33396698));
+	        countryEN.add(new Country("Philippines", 300000, 110560241));
+	        countryEN.add(new Country("Poland", 312696, 37749000));
+	        countryEN.add(new Country("Portugal", 92226, 10344802));
+	        countryEN.add(new Country("Qatar", 11586, 2799202));
+	        countryEN.add(new Country("Romania", 238397, 19053815));
+	        countryEN.add(new Country("Russia", 17124442, 146424729));
+	        countryEN.add(new Country("Rwanda", 26338, 13246394));
+	        countryEN.add(new Country("Saint Kitts and Nevis", 261 ,110696));
+	        countryEN.add(new Country("Saint Lucia", 616, 178696));
+	        countryEN.add(new Country("Saint Vincent and the Grenadines", 389 ,110696));
+	        countryEN.add(new Country("Samoa", 2842, 199853));
+	        countryEN.add(new Country("San Marino", 61, 33785));
+	        countryEN.add(new Country("São Tomé and Príncipe", 964, 214610));
+	        countryEN.add(new Country("Saudi Arabia", 2149690, 34110821));
+	        countryEN.add(new Country("Senegal", 196722, 17223497));
+	        countryEN.add(new Country("Serbia", 88361, 6690887));
+	        countryEN.add(new Country("Seychelles", 452, 100447));
+	        countryEN.add(new Country("Sierra Leone", 71740, 8494260));
+	        countryEN.add(new Country("Singapore", 728, 5637022));
+	        countryEN.add(new Country("Slovakia", 49037, 5428792));
+	        countryEN.add(new Country("Slovenia", 20273, 2108977));
+	        countryEN.add(new Country("Solomon Islands", 28896, 728041));
+	        countryEN.add(new Country("Somalia", 637657, 17598000));
+	        countryEN.add(new Country("South Africa", 1221037, 60604992));
+	        countryEN.add(new Country("South Korea", 100210, 51439038));
+	        countryEN.add(new Country("South Sudan", 644329, 13249924));
+	        countryEN.add(new Country("Spain", 505992, 47615034));
+	        countryEN.add(new Country("Sri Lanka", 65610, 22181000));
+	        countryEN.add(new Country("Sudan", 1861484, 45320625));
+	        countryEN.add(new Country("Suriname", 163820, 598000));
+	        countryEN.add(new Country("Sweden", 447425, 10528561));
+	        countryEN.add(new Country("Switzerland", 41284, 8812728));
+	        countryEN.add(new Country("Syria", 185180, 22125000));
+	        countryEN.add(new Country("Tajikistan", 143100, 9506000));
+	        countryEN.add(new Country("Tanzania", 945087, 61741120));
+	        countryEN.add(new Country("Thailand", 513120, 66010910));
+	        countryEN.add(new Country("Togo", 56785, 7886000));
+	        countryEN.add(new Country("Tonga", 747, 100179));
+	        countryEN.add(new Country("Trinidad and Tobago", 5130, 1367558));
+	        countryEN.add(new Country("Tunisia", 163610, 11803588));
+	        countryEN.add(new Country("Turkey", 783562, 85279553));
+	        countryEN.add(new Country("Turkmenistan", 488100, 6431000));
+	        countryEN.add(new Country("Tuvalu", 26, 10679));
+	        countryEN.add(new Country("Uganda", 241550, 42885900));
+	        countryEN.add(new Country("Ukraine", 603550, 41130432));
+	        countryEN.add(new Country("United Arab Emirates", 83600, 9282410));
+	        countryEN.add(new Country("United Kingdom", 242495, 67026292));
+	        countryEN.add(new Country("United States", 9629091, 334640000));
+	        countryEN.add(new Country("Uruguay", 176215, 3554915));
+	        countryEN.add(new Country("Uzbekistan", 447400, 36169199));
+	        countryEN.add(new Country("Vanuatu", 12189, 301295));
+	        countryEN.add(new Country("Vatican City", 0.49, 825));
+	        countryEN.add(new Country("Venezuela", 916445, 28302000));
+	        countryEN.add(new Country("Vietnam", 331212, 99460000));
+	        countryEN.add(new Country("Yemen", 555000, 33697000));
+	        countryEN.add(new Country("Zambia", 752612, 19610769));
+	        countryEN.add(new Country("Zimbabwe", 390757, 15178979));			
+	        
+		    return countryEN;    
+	 }
+}

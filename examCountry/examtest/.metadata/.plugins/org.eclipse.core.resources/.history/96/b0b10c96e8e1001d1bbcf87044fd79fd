@@ -1,0 +1,113 @@
+<%@page contentType="text/html; charset=utf-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@include file="../css.jsp" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+<title>Country Test</title>
+</head>
+
+<body>
+	<table align="right" width="100">
+		<td>
+			<a href="testTH.jsp"><img src="th.png" alt="th-icon" width="50" height="50"></a> 
+	    </td>
+	    <td>
+	    	<a href="testEN.jsp"><img src="en.png" alt="en-icon" width="50" height="50"></a> 
+	    </td>  
+	</table>
+	<br>
+	<br>
+
+	<form action="ENCountry" method="post">
+		<centr><table id="tbhead">
+			<tr>
+			    <td>Country :</td>
+			    <td><input type="text" name="countryName" id="text"/></td>   </td><td>
+			</tr>
+			
+			<tr>
+			    <td>Population :</td>
+			    <td><input type="text" name="population" id="text"/></td>
+			</tr> 
+			    
+			<tr>
+			    <td>Sort :</td> 
+			    <td>
+			    	<select name="sorting" id="sorting">
+				    	<option>select</option>
+				    	<option value="name">name</option>
+					    <option value="area">area</option>
+					    <option value="population">population</option>
+					</select>
+				</td>
+			</tr>
+		    
+			<tr>
+			    <td>Order by :</td>
+			    <td>
+				    <input type="radio" id="asc" name="orderBy" value="asc" checked="checked"/>
+			    	<label for="coding">Asc</label>
+			    	<input type="radio" id="desc" name="orderBy" value="desc" />
+			    	<label for="coding">Desc</label>
+		    	</td>
+			</tr>
+		 </table>
+		    	
+			<center>
+			<tr>
+				<td><input type="submit" value="Search" id="search"/></td>
+				<td><button onclick="location.href='testEN.jsp'" type="button" id="reset">Reset</button></td>
+			</tr>	
+			</center>	
+	</form>
+	
+	<br>
+	<table width="100%" border="3" id="table"> 
+		<c:if test="${countryENSearch ne null}">
+			<tr id="head">
+				<th>No.</th>
+				<th>Country</th>
+				<th>Area (km^2)</th>
+				<th>Population</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Sum</th>
+				<th></th>
+				<th></th>
+			</tr> 	
+		</c:if>	
+		
+			
+	
+	
+		<tr>
+			<c:forEach items="${countryENSearch}" var="country" varStatus="irow">	
+		    	<tr>  	
+					<td align="center">${irow.index + 1}</td>
+					<td>${country.name}</td>
+					<td><fmt:formatNumber type = "number" value = "${country.area}"  pattern = "#,###.00"/></td>
+					<td><fmt:formatNumber type = "number" value = "${country.people}"  pattern = "#,###.00"/></td>
+				</tr> 	
+		   	</c:forEach>
+		</tr> 
+		
+		
+		 		
+	</table>
+	
+</body>
+</html>

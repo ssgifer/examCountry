@@ -1,0 +1,285 @@
+package exam;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import javax.servlet.http.*;
+
+public class CountryTHFunction {
+	
+	public static ArrayList<Country> getCountryTH(String nameCountry) {
+		
+		ArrayList<Country> countryTHlist = new ArrayList<>();
+		ArrayList<Country> getCountryTHlist = getAllCountryTH();
+		
+//		if (nameCountry.length() >= 1 && population.length() > 0) {
+//			for(Country eachCountry : getCountryTHlist) {
+//				if(eachCountry.getName().toLowerCase().contains(nameCountry.toLowerCase()) && eachCountry.getPeople() >= Integer.parseInt(population)) {
+////						System.out.println("Country : " + eachCountry.getName() + "\t" + "Area : " + eachCountry.getArea() + "\t" + " " + "Population : " + eachCountry.getPeople());				
+//						countryTHlist.add(eachCountry);
+//				}					
+//			}
+//		}
+		
+		if (nameCountry.length() >= 1) {
+			for(Country eachCountry : getCountryTHlist) {
+				if (eachCountry.getName().contains(nameCountry)) {
+//					System.out.println("Country : " + eachCountry.getName() + "\t" + "Area : " + eachCountry.getArea() + "\t" + " " + "Population : " + eachCountry.getPeople());				
+					countryTHlist.add(eachCountry);
+				}
+			}
+		}		
+		
+//		else if (population.length() > 0) {
+//			for(Country eachCountry : getCountryTHlist) {
+//				if (eachCountry.getPeople() >= Integer.parseInt(population)) {
+////					System.out.println("Country : " + eachCountry.getName() + "\t" + "Area : " + eachCountry.getArea() + "\t" + " " + "Population : " + eachCountry.getPeople());				
+//					countryTHlist.add(eachCountry);
+//				}
+//			}
+//		}
+//		
+//		else {
+//			return null;
+//		}
+////		
+		return countryTHlist;
+	}
+	
+	
+//	public static ArrayList<Country> getSortbyName(ArrayList<Country> countryTHlist){
+//		Collections.sort(countryTHlist, new Comparator<Country>() {
+//		@Override
+//	    public int compare(Country a, Country b) {
+//	        return a.getName().compareTo(b.getName());
+//		}
+//		});
+//		return countryTHlist;	
+//	}
+//		
+//	public static ArrayList<Country> getSortbyArea(ArrayList<Country> countryTHlist){
+//		Collections.sort(countryTHlist, new Comparator<Country>() {
+//		@Override
+//		public int compare(Country a, Country b) {
+//	        return Double.compare(a.getArea(),b.getArea());
+//		}
+//		});
+//		return countryTHlist;	
+//	}
+//	
+//	public static ArrayList<Country> getSortbyPopulation(ArrayList<Country> countryTHlist){
+//		Collections.sort(countryTHlist, new Comparator<Country>() {
+//		@Override
+//		public int compare(Country a, Country b) {
+//	        return Integer.compare(a.getPeople(),b.getPeople());
+//		}
+//		});
+//	return countryTHlist;	
+//}
+		
+	public static ArrayList<Country> getAllCountryTH() {
+		 
+	        ArrayList<Country> countryTH = new ArrayList<>();
+	      
+	        countryTH.add(new Country("อัฟกานิสถาน", 652867, 32890171));
+	        countryTH.add(new Country("แอลเบเนีย", 28748, 2793592));
+	        countryTH.add(new Country("แอลจีเรีย", 2381741, 45400000));
+	        countryTH.add(new Country("อันดอร์รา", 468, 81057));
+	        countryTH.add(new Country("แองโกลา", 1246700, 33086278));
+	        countryTH.add(new Country("แอนติกาและบาร์บูดา", 442, 100772));
+	        countryTH.add(new Country("อาร์เจนตินา", 2780400, 46044703));
+	        countryTH.add(new Country("อาร์เมเนีย", 29743, 2976800));
+	        countryTH.add(new Country("ออสเตรเลีย", 7692024, 26438304));
+	        countryTH.add(new Country("ออสเตรีย", 83871, 9106126));
+	        countryTH.add(new Country("อาเซอร์ไบจาน", 86600, 10127145));
+	        countryTH.add(new Country("บาฮามาส", 13943, 393450));
+	        countryTH.add(new Country("บาห์เรน", 786, 1501635));
+	        countryTH.add(new Country("บังคลาเทศ", 148460, 169828911));
+	        countryTH.add(new Country("บาร์เบโดส", 430, 282000));
+	        countryTH.add(new Country("เบลารุส", 207600, 9255524));
+	        countryTH.add(new Country("เบลเยี่ยม", 30528, 11730564));
+	        countryTH.add(new Country("เบลีซ", 22966, 441471));
+	        countryTH.add(new Country("เบนิน", 114763, 12506347));
+	        countryTH.add(new Country("ภูฏาน", 38394, 763200));
+	        countryTH.add(new Country("โบลิเวีย", 1098581, 12006031));
+	        countryTH.add(new Country("บอสเนียและเฮอร์เซโก", 51209, 3320954));
+	        countryTH.add(new Country("บอตสวานา", 581730, 2410338));
+	        countryTH.add(new Country("บราซิล", 8514877, 216032823));
+	        countryTH.add(new Country("บรูไน", 5765, 429999));
+	        countryTH.add(new Country("บัลแกเรีย", 111002, 6519789));
+	        countryTH.add(new Country("บูร์กินาฟาโซ", 274222, 22185654));
+	        countryTH.add(new Country("บุรุนดี", 27834, 12574571));
+	        countryTH.add(new Country("กัมพูชา", 181035, 15552211));
+	        countryTH.add(new Country("แคเมอรูน", 475442, 24348251));
+	        countryTH.add(new Country("แคนาดา", 9984670, 39815281));
+	        countryTH.add(new Country("เคปเวิร์ด", 4033, 563198));
+	        countryTH.add(new Country("สาธารณรัฐแอฟริกากลาง", 622984, 5633412));
+	        countryTH.add(new Country("ชาด", 1284000, 16818391));
+	        countryTH.add(new Country("ชิลี", 756102, 19960889));
+	        countryTH.add(new Country("จีน", 9640011, 1411750000));
+	        countryTH.add(new Country("โคลอมเบีย", 1141748, 52215503));
+	        countryTH.add(new Country("คอโมโรส", 1862, 758316));
+	        countryTH.add(new Country("คองโก", 342000, 5970000));
+	        countryTH.add(new Country("คอสตาริกา", 51100, 5163038));
+	        countryTH.add(new Country("โครเอเชีย", 56594, 3871833));
+	        countryTH.add(new Country("คิวบา", 109884, 11113215));
+	        countryTH.add(new Country("ไซปรัส", 9251, 918100));
+	        countryTH.add(new Country("สาธารณรัฐเช็ก", 78871, 10526937));
+	        countryTH.add(new Country("เดนมาร์ก", 43094, 5932654));
+	        countryTH.add(new Country("จิบูตี", 23200, 1001454));
+	        countryTH.add(new Country("โดมินิกา", 751, 73000));
+	        countryTH.add(new Country("สาธารณรัฐโดมินิกัน", 48671, 10535535));
+	        countryTH.add(new Country("ดีอาร์ คองโก", 2344858, 99010000));
+	        countryTH.add(new Country("ติมอร์ตะวันออก", 14919, 1317780));
+	        countryTH.add(new Country("เอกวาดอร์", 276841, 18273599));
+	        countryTH.add(new Country("อียิปต์", 1002450, 104700708));
+	        countryTH.add(new Country("เอลซัลวาดอร์", 21041, 6884888));
+	        countryTH.add(new Country("อิเควทอเรียลกินี", 28051, 1505588));
+	        countryTH.add(new Country("เอริเทรีย", 125000, 3684000));
+	        countryTH.add(new Country("เอสโตเนีย", 45227, 1331796));
+	        countryTH.add(new Country("เอสวาตินี่", 17364, 1202000));
+	        countryTH.add(new Country("เอธิโอเปีย", 1104300, 105163988));
+	        countryTH.add(new Country("ฟิจิ", 18272, 898402));
+	        countryTH.add(new Country("ฟินแลนด์", 338425, 5528796));
+	        countryTH.add(new Country("ฝรั่งเศส", 640679, 68042591));
+	        countryTH.add(new Country("กาบอง", 267668, 2233272));
+	        countryTH.add(new Country("แกมเบีย", 11295, 2706000));
+	        countryTH.add(new Country("จอร์เจีย", 69700, 3688600));
+	        countryTH.add(new Country("เยอรมนี", 357114, 84270625));
+	        countryTH.add(new Country("กานา", 238533, 30832019));
+	        countryTH.add(new Country("กรีซ", 131957, 10482487));
+	        countryTH.add(new Country("เกรนาดา", 344, 125000));
+	        countryTH.add(new Country("กัวเตมาลา", 108889, 17109746));
+	        countryTH.add(new Country("กินี", 245857, 1646077));
+	        countryTH.add(new Country("กินีบิสเซา", 36125, 1646077));;
+	        countryTH.add(new Country("กายอานา", 214969, 743699));
+	        countryTH.add(new Country("เฮติ", 27750, 11743017));
+	        countryTH.add(new Country("ฮอนดูรัส", 112492, 9546178));
+	        countryTH.add(new Country("ฮังการี", 93028, 9678000));
+	        countryTH.add(new Country("ไอซ์แลนด์", 103000, 387758));
+	        countryTH.add(new Country("อินเดีย", 3201446, 1392329000));
+	        countryTH.add(new Country("อินโดนีเซีน", 1904569, 275773800));
+	        countryTH.add(new Country("อิหร่าน", 1628750, 86362094));
+	        countryTH.add(new Country("อิรัก", 438317, 41190700));
+	        countryTH.add(new Country("ไอร์แลนด์", 70273, 5123536));
+	        countryTH.add(new Country("อิสราเอล", 20770, 9707840));
+	        countryTH.add(new Country("อิตาลี", 301339, 58833079));
+	        countryTH.add(new Country("ไอวอรี่โคสต์", 322463, 29389150));
+	        countryTH.add(new Country("จาเมกา", 10991, 2727503));
+	        countryTH.add(new Country("ญี่ปุ่น", 377976, 124947000));
+	        countryTH.add(new Country("จอร์แดน", 89342, 11453760));
+	        countryTH.add(new Country("คาซัคสถาน", 2724900, 19838620));
+	        countryTH.add(new Country("เคนยา", 580367, 47564296));
+	        countryTH.add(new Country("คิริบาส", 811, 120740));
+	        countryTH.add(new Country("คูเวต", 17818, 4670713));
+	        countryTH.add(new Country("คีร์กีซสถาน", 199951, 7100000));
+	        countryTH.add(new Country("ลาว", 236800, 7337783));
+	        countryTH.add(new Country("ลัตเวีย", 64559, 1888200));
+	        countryTH.add(new Country("เลบานอน", 10452, 5490000));
+	        countryTH.add(new Country("เลโซโท", 30355, 2306000));
+	        countryTH.add(new Country("ไลบีเรีย", 111369, 4661010));
+	        countryTH.add(new Country("ลิเบีย", 1759540, 6812000));
+	        countryTH.add(new Country("ลิกเตนสไตน์", 160 ,39680));
+	        countryTH.add(new Country("ลิทัวเนีย", 65300, 2859718));
+	        countryTH.add(new Country("ลักเซมเบิร์ก", 2586, 660809));
+	        countryTH.add(new Country("มาดากัสการ์", 587041, 26923353));
+	        countryTH.add(new Country("มาลาวี", 118484, 21507723));
+	        countryTH.add(new Country("มาเลเซีย", 330803, 32783000));
+	        countryTH.add(new Country("มัลดีฟส์", 300, 383135));
+	        countryTH.add(new Country("มาลี", 1240192, 22594000));
+	        countryTH.add(new Country("มอลตา", 316 ,519562));
+	        countryTH.add(new Country("หมู่เกาะมาร์แชลล์", 181, 39262));
+	        countryTH.add(new Country("มอริเตเนีย", 1030700, 4271197));
+	        countryTH.add(new Country("มอริเชียส", 2040, 1266334));
+	        countryTH.add(new Country("เม็กซิโก", 1964375, 128665641));
+	        countryTH.add(new Country("ไมโครนีเซีย", 702, 105754));
+	        countryTH.add(new Country("มอลโดวา", 33846, 2597100));
+	        countryTH.add(new Country("โมนาโก", 2.02, 39150));
+	        countryTH.add(new Country("มองโกเลีย", 1564100, 3492683));
+	        countryTH.add(new Country("มอนเตเนโกร", 13812, 617683));
+	        countryTH.add(new Country("โมร็อกโก", 446550, 36928040));
+	        countryTH.add(new Country("โมซัมบิก", 801590, 32419747));
+	        countryTH.add(new Country("พม่า", 676578, 55770232));
+	        countryTH.add(new Country("นามิเบีย", 825615, 2550226));
+	        countryTH.add(new Country("นาอูรู", 21, 11832));
+	        countryTH.add(new Country("เนปาล", 147516, 29164578));
+	        countryTH.add(new Country("เนเธอร์แลนด์", 41850, 17858440));
+	        countryTH.add(new Country("นิวซีแลนด์", 270467, 5162735));
+	        countryTH.add(new Country("นิการากัว", 130373, 6595674));
+	        countryTH.add(new Country("ไนเจอร์", 1267000, 24112753));
+	        countryTH.add(new Country("ไนจีเรีย", 923768, 218541000));
+	        countryTH.add(new Country("เกาหลีเหนือ", 120540, 25660000));
+	        countryTH.add(new Country("มาซิโดเนียเหนือ", 25713, 1832696));
+	        countryTH.add(new Country("นอร์เวย์", 385207, 5488984));
+	        countryTH.add(new Country("โอมาน", 309500, 19053815)); 
+	        countryTH.add(new Country("ปากีสถาน", 881913, 235825000));
+	        countryTH.add(new Country("ปาเลา", 459, 16733));
+	        countryTH.add(new Country("ปาเลสไตน์", 6220, 5483450));
+	        countryTH.add(new Country("ปานามา", 75417, 4278500));
+	        countryTH.add(new Country("ปาปัวนิวกินี", 462840, 9122994));
+	        countryTH.add(new Country("ปารากวัย", 406752, 7353038));
+	        countryTH.add(new Country("เปรู", 1285216, 33396698));
+	        countryTH.add(new Country("ฟิลิปปินส์", 300000, 110560241));
+	        countryTH.add(new Country("โปแลนด์", 312696, 37749000));
+	        countryTH.add(new Country("โปรตุเกส", 92226, 10344802));
+	        countryTH.add(new Country("กาตาร์", 11586, 2799202));
+	        countryTH.add(new Country("โรมาเนีย", 238397, 19053815));
+	        countryTH.add(new Country("รัสเซีย", 17124442, 146424729));
+	        countryTH.add(new Country("รวันดา", 26338, 13246394));
+	        countryTH.add(new Country("เซนต์คิตส์และเนวิส", 261 ,110696));
+	        countryTH.add(new Country("เซนต์ลูเซีย", 616, 178696));
+	        countryTH.add(new Country("เซนต์วินเซนต์และเกรนาดีนส์", 389 ,110696));
+	        countryTH.add(new Country("ซามัว", 2842, 199853));
+	        countryTH.add(new Country("ซานมาริโน", 61, 33785));
+	        countryTH.add(new Country("เซาตูเมและปรินซิปี", 964, 214610));
+	        countryTH.add(new Country("ซาอุดิอาราเบีย", 2149690, 34110821));
+	        countryTH.add(new Country("เซเนกัล", 196722, 17223497));
+	        countryTH.add(new Country("เซอร์เบีย", 88361, 6690887));
+	        countryTH.add(new Country("เซเชลส์", 452, 100447));
+	        countryTH.add(new Country("เซียร์ราลีโอน", 71740, 8494260));
+	        countryTH.add(new Country("สิงคโปร์", 728, 5637022));
+	        countryTH.add(new Country("สโลวาเกีย", 49037, 5428792));
+	        countryTH.add(new Country("สโลวีเนีย", 20273, 2108977));
+	        countryTH.add(new Country("หมู่เกาะโซโลมอน", 28896, 728041));
+	        countryTH.add(new Country("โซมาเลีย", 637657, 17598000));
+	        countryTH.add(new Country("แอฟริกาใต้", 1221037, 60604992));
+	        countryTH.add(new Country("เกาหลีใต้", 100210, 51439038));
+	        countryTH.add(new Country("ซูดานใต้", 644329, 13249924));
+	        countryTH.add(new Country("สเปน", 505992, 47615034));
+	        countryTH.add(new Country("ศรีลังกา", 65610, 22181000));
+	        countryTH.add(new Country("ซูดาน", 1861484, 45320625));
+	        countryTH.add(new Country("ซูรินาเม", 163820, 598000));
+	        countryTH.add(new Country("สวีเดน", 447425, 10528561));
+	        countryTH.add(new Country("สวิตเซอร์แลนด์", 41284, 8812728));
+	        countryTH.add(new Country("ซีเรีย", 185180, 22125000));
+	        countryTH.add(new Country("ทาจิกิสถาน", 143100, 9506000));
+	        countryTH.add(new Country("แทนซาเนีย", 945087, 61741120));
+	        countryTH.add(new Country("ไทย", 513120, 66010910));
+	        countryTH.add(new Country("โตโก", 56785, 7886000));
+	        countryTH.add(new Country("ตองกา", 747, 100179));
+	        countryTH.add(new Country("ตรินิแดดและโตเบโก", 5130, 1367558));
+	        countryTH.add(new Country("ตูนิเซีย", 163610, 11803588));
+	        countryTH.add(new Country("ตุรกี", 783562, 85279553));
+	        countryTH.add(new Country("เติร์กเมนิสถาน", 488100, 6431000));
+	        countryTH.add(new Country("ตูวาลู", 26, 10679));
+	        countryTH.add(new Country("ยูกันดา", 241550, 42885900));
+	        countryTH.add(new Country("ยูเครน", 603550, 41130432));
+	        countryTH.add(new Country("สหรัฐอาหรับเอมิเรตส์", 83600, 9282410));
+	        countryTH.add(new Country("อังกฤษ", 242495, 67026292));
+	        countryTH.add(new Country("สหรัฐอเมริกา", 9629091, 334640000));
+	        countryTH.add(new Country("อุรุกวัย", 176215, 3554915));
+	        countryTH.add(new Country("อุซเบกิสถาน", 447400, 36169199));
+	        countryTH.add(new Country("วานูอาตู", 12189, 301295));
+	        countryTH.add(new Country("เมืองวาติกัน", 0.49, 825));
+	        countryTH.add(new Country("เวเนซุเอลา", 916445, 28302000));
+	        countryTH.add(new Country("เวียดนาม", 331212, 99460000));
+	        countryTH.add(new Country("เยเมน", 555000, 33697000));
+	        countryTH.add(new Country("แซมเบีย", 752612, 19610769));
+	        countryTH.add(new Country("ซิมบับเว", 390757, 15178979));
+			
+		    return countryTH;    
+	 
+	 }
+	
+}

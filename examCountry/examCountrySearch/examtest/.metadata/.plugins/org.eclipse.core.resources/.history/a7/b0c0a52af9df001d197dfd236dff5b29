@@ -1,0 +1,156 @@
+<%@ page contentType="text/html; charset=utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
+<style type="text/css">
+body { 
+	font-family: Cursive;
+	font-size: 18px;
+	background-image: url("https://wallpapers.com/images/featured/8kgg4q470wnbyz3x.jpg");
+}
+   
+#search {
+	font-family: Cursive;
+	border: none;
+	color: black;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #9999CC;
+	padding: 10px 25px;
+	font-size: 18px;
+	margin: 4px 2px;
+}
+
+#reset {
+	font-family: Cursive;
+	border: none;
+	color: black;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #9999CC;
+	padding: 10px 25px;
+	font-size: 18px;
+	margin: 4px 2px;
+}
+
+table{
+    border-collapse: collapse;
+	margin-top: 5px;
+}
+
+#sorting, #text{
+    font-family: Cursive;
+    font-size: 18px;
+}
+
+#table{
+	background-color: #FFFFCC;
+}
+
+#table td {
+	border: 2px solid #000000;
+	padding: 8px;
+}
+
+#table th {
+	border: 2px solid #000000;
+	padding: 12px;
+	font-size: 20px;
+}
+
+#head{
+	background-color : #FF9999;
+}
+
+#table tr:nth-child(even){
+	background-color: #FFFFFF;
+}
+
+/* #table tr:hover {background-color: #ddd;} */
+
+</style>
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+	<meta charset="utf-8">
+	<meta equiv="Content-Type" content="text/html; charset=TIS-620">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+<title>Country Test</title>
+</head>
+<body>
+<table align="right" width="100">
+	<td> <a href="testTH.jsp"><img src="th.png" alt="th-icon" width="50" height="50"></a> 
+    </td>
+    <td> <a href="testEN.jsp"><img src="en.png" alt="en-icon" width="50" height="50" /></a> 
+    </td>
+</table>
+
+<br><br>
+<center>
+
+<div><form action="THCountry" method="post">
+		<br><br>
+		
+	    <td>ชื่อประเทศ :</td> 
+	    <td><input type="text" name="countryName" id="text"/></td>
+	    <br><br>
+	    
+	    <td>จำนวนประชากรที่มากกว่า :</td> 
+	    <td><input type="text" name="population" id="text"/></td>
+	    <br><br>
+	    
+	    <td>เรียงลำดับ :</td>
+	    <td><select name="sorting" id="sorting">
+	    	<option>เลือก</option>
+	    	<option value="name">ชื่อประเทศ</option>
+		    <option value="area">พื้นที่</option>
+		    <option value="population">จำนวนประชากร</option>
+		</td>
+		</select>
+	    <br><br>
+	    
+	    <td><td>รูปแบบการจัดเรียง :</td>
+	    <input type="radio" id="asc" name="orderBy" value="asc" checked="checked"/>
+    	<label for="coding">น้อยไปมาก</label>
+    	<input type="radio" id="desc" name="orderBy" value="desc" />
+    	<label for="coding">มากไปน้อย</label>
+    	
+    	</td>
+    	<br><br>  
+	    
+		<td><input type="submit" value="ค้นหา" id="search"/></td>
+		<td><input type="reset" value="เริ่มใหม่" id="reset"/></td>
+    </form>
+    <br> 
+</div>
+
+<table width="100%" border="3" id="table"> 
+	<c:if test="${countryTHSearch ne null}">
+	<tr id="head">
+		<th>ลำดับ</th>
+		<th>ประเทศ</th>
+		<th>พื้นที่ (ตารางเมตร)</th>
+		<th>จำนวนประชากร</th>
+	</tr>
+	</c:if>
+	
+	<tr>
+		<c:forEach items="${countryTHSearch}" var="country" varStatus="irow">	
+	    	<tr>  	
+				<td align="center">${irow.index + 1}</td>
+				<td>${country.name}</td>
+				<td>${country.area}</td>
+				<td>${country.people}</td>
+				
+			</tr>
+	   </c:forEach>
+   </tr> 
+</table>
+</body>
+</html>
